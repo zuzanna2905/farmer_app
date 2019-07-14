@@ -1,0 +1,36 @@
+$pink: #DB5461;
+$green: #255957;
+$blue: #437C90;
+$white: #EEEBD3;
+$yellow: #F7C548;
+
+nav {
+  background-color: $green;
+  height: 60px;
+  color: $white;
+  ul {
+    li {
+      padding-left: 25px;
+      width: 100px;
+    }
+  }
+}
+
+.page {
+  background-color: white;
+  margin-left: 200px;
+}
+
+.sidebar{
+  background-color: $blue;
+  position: fixed;
+  left: 0;
+  height: 100%;
+  color: $white;
+  ul{
+    padding: 15px;
+    li {
+      padding: 10px;
+    }
+  }
+}
