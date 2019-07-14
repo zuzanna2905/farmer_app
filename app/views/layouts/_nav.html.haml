@@ -3,18 +3,22 @@
   %a.sidenav-trigger{"data-target" => "mobile"}
     %i.material-icons menu
   %ul.right.hide-on-med-and-down
-    %li Sign in 
-    %li Sign up
-    %li Sign out
+    - if user_signed_in?
+      =link_to 'Sign out', destroy_user_session_path, method: :delete
+    - else
+      =link_to 'Sign in', new_user_session_path
+      =link_to 'Sign up', new_user_registration_path
 
   %ul.sidenav#mobile
-    %li POLA
-    %li MASZYNY
-    %li CHEMIKALIA
-    %li MAGAZYNY
-    %li WYDATKI
-    %li PRACOWNICY
-    %li KALKULATOR
-    %li SIGN IN
-    %li SIGN UP
-    %li SIGN OUT
+    - if user_signed_in?
+      %li POLA
+      %li MASZYNY
+      %li CHEMIKALIA
+      %li MAGAZYNY
+      %li WYDATKI
+      %li PRACOWNICY
+      %li KALKULATOR
+      %li SIGN OUT
+    - else
+      %li SIGN IN
+      %li SIGN UP
