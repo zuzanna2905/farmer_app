@@ -1,0 +1,7 @@
+%h4.center-align Twoje maszyny
+%p.center-align
+  =link_to 'Dodaj maszynę', new_machine_path
+%ul.collection.col.s8.offset-s2
+  - @machines.each do |machine|
+    %li.collection-item
+      %p=link_to machine.name, machine

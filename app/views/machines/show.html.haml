@@ -1,0 +1,8 @@
+.row
+  .col.s12.m8.offset-m2
+    .card-panel.teal.center-align.white-text
+      %h4 #{@machine.name}
+      %p Rok zakupu: #{@machine.year.to_date}
+      %hr
+      =link_to 'Usuń', @machine, method: :delete, data: {confirm: 'Czy na pewno chcesz usunąć tę maszynę?'}, class: 'white-text'
+      =link_to 'Edytuj', edit_machine_path, class: 'white-text'

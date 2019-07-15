@@ -1,0 +1,16 @@
+= render 'shared/errors', obj: @machine
+
+.row
+  .col.s10.offset-s1
+    =form_for @machine do |f|
+      .row
+        .input-field.col.s12
+          = f.label :name, 'Nazwa', class: 'active'
+          = f.text_field :name, class: 'validate', autofocus: true
+      .row
+        .input-field.col.s12
+          = f.label :year, 'Rok maszyny', class: 'active'
+          = f.date_field :year, class: 'validate'
+      .row
+        .input-field.col.s12
+          = f.submit 'Dodaj', class: 'btn btn-success btn-lg'
