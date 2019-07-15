@@ -1,7 +1,9 @@
 class WarehousesController < ApplicationController
   before_action :find_warehouse, only: [:show, :edit, :update, :destroy]
+  before_action :same_user, except: [:index, :new, :create]
+
   def index
-    @warehouses = Warehouse.all
+    @warehouses = Warehouse.where(user_id: current_user)
   end
 
   def new
@@ -40,5 +42,11 @@ class WarehousesController < ApplicationController
 
     def warehouse_params
       params.require(:warehouse).permit(:items, :name, :volume, :volume_left)
+    end
+
+    def same_user
+      if @warehouse.user_id != current_user.id
+        redirect_to warehouses_path
+      end
     end
 end

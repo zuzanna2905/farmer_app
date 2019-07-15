@@ -1,7 +1,9 @@
 class FieldsController < ApplicationController
   before_action :find_field, only: [:show, :edit, :update, :destroy]
+  before_action :same_user, except: [:index, :new, :create]
+
   def index
-    @fields = Field.all
+    @fields = Field.where(user_id: current_user)
   end
 
   def new
@@ -40,5 +42,11 @@ class FieldsController < ApplicationController
 
     def field_params
       params.require(:field).permit(:year, :number, :area, :ownership, :name)
+    end
+
+    def same_user
+      if @field.user_id != current_user.id
+        redirect_to fields_path
+      end
     end
 end

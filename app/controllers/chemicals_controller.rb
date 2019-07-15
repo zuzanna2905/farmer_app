@@ -1,7 +1,10 @@
 class ChemicalsController < ApplicationController
-  before_action :find_chemical, only: [:show, :edit, :update, :destroy]
+  before_action :find_chemical, only: [:show, :edit, :update, :destroy, :same_user]
+  before_action :authenticate_user!
+  before_action :same_user, except: [:index, :new, :create]
+
   def index
-    @chemicals = Chemical.all
+    @chemicals = Chemical.where(user_id: current_user)
   end
 
   def new
@@ -40,6 +43,12 @@ class ChemicalsController < ApplicationController
 
     def chemical_params
       params.require(:chemical).permit(:expiration_date, :name, :volume, :volume_left)
+    end
+
+    def same_user
+      if @chemical.user_id != current_user.id
+        redirect_to chemicals_path
+      end
     end
 
 end

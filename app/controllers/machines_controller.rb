@@ -1,8 +1,9 @@
 class MachinesController < ApplicationController
   before_action :find_machine, only: [:show, :edit, :update, :destroy]
-  
+  before_action :same_user, except: [:index, :new, :create]
+
   def index
-    @machines = Machine.all
+    @machines = Machine.where(user_id: current_user)
   end
 
   def new
@@ -41,5 +42,11 @@ class MachinesController < ApplicationController
 
     def machine_params
       params.require(:machine).permit(:year, :name)
+    end
+
+    def same_user
+      if @machine.user_id != current_user.id
+        redirect_to machines_path
+      end
     end
 end
