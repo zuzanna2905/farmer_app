@@ -1,0 +1,7 @@
+%h4.center-align Twoje pola
+%p.center-align
+  =link_to 'Dodaj pole', new_field_path
+%ul.collection.col.s8.offset-s2
+  - @fields.each do |field|
+    %li.collection-item
+      %p=link_to field.number, field_path(field)

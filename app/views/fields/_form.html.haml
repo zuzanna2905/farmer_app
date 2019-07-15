@@ -1,0 +1,24 @@
+= render 'shared/errors', obj: @field
+
+.row
+  .col.s10.offset-s1
+    =form_for @field do |f|
+      .row
+        .input-field.col.s12
+          = f.label :number, 'Numer', class: 'active'
+          = f.text_field :number, class: 'validate', autofocus: true
+      .row
+        .input-field.col.s12
+          = f.label :area, 'Powierzchnia [ha]', class: 'active'
+          = f.number_field :area, class: 'validate'
+      .row
+        .input-field.col.s12
+          = f.label :year, 'Rok zakupu', class: 'active'
+          = f.date_field :year, class: 'validate'
+      .row
+        .input-field.col.s12
+          = f.label :ownership, 'Własność', class: 'active'
+          = f.text_field :ownership, class: 'validate'
+      .row
+        .input-field.col.s12
+          = f.submit 'Dodaj', class: 'btn btn-success btn-lg'

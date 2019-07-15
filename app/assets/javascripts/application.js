@@ -17,5 +17,6 @@
 //= require_tree .
 
 document.addEventListener("turbolinks:load", function() {
-  $('.sidenav').sidenav();
+  // $('.sidenav').sidenav();
+  // $('.datepicker').datepicker();
 })

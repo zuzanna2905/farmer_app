@@ -4,21 +4,21 @@
     %i.material-icons menu
   %ul.right.hide-on-med-and-down
     - if user_signed_in?
-      =link_to 'Sign out', destroy_user_session_path, method: :delete
+      =link_to 'WYLOGUJ', destroy_user_session_path, method: :delete
     - else
-      =link_to 'Sign in', new_user_session_path
-      =link_to 'Sign up', new_user_registration_path
+      =link_to 'ZALOGUJ', new_user_session_path
+      =link_to 'ZAREJESTRUJ', new_user_registration_path
 
   %ul.sidenav#mobile
     - if user_signed_in?
-      %li POLA
+      =link_to 'POLA', fields_path
       %li MASZYNY
       %li CHEMIKALIA
       %li MAGAZYNY
       %li WYDATKI
       %li PRACOWNICY
       %li KALKULATOR
-      %li SIGN OUT
+      %li WYLOGUJ
     - else
-      %li SIGN IN
-      %li SIGN UP
+      %li ZALOGUJ
+      %li ZAREJESTRUJ

@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_14_191927) do
+ActiveRecord::Schema.define(version: 2019_07_14_222503) do
+
+  create_table "fields", force: :cascade do |t|
+    t.string "number"
+    t.float "area"
+    t.datetime "year"
+    t.boolean "ownership"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_fields_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
