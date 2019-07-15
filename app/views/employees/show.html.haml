@@ -1,0 +1,10 @@
+.row
+  .col.s12.m8.offset-m2
+    .card-panel.teal.center-align.white-text
+      %h4 #{@employee.name}
+      %p Umiejętności: #{@employee.skills}
+      %p Data zatrudnienia: #{@employee.start_date.to_date}
+      %p Stawka godzinowa: #{@employee.payment}PLN/H
+      %hr
+      =link_to 'Usuń', @employee, method: :delete, data: {confirm: 'Czy na pewno chcesz usunąć tego pracownika?'}, class: 'white-text'
+      =link_to 'Edytuj', edit_employee_path, class: 'white-text'

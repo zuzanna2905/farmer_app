@@ -1,0 +1,7 @@
+%h4.center-align Pracownicy
+%p.center-align
+  =link_to 'Dodaj pracownika', new_employee_path
+%ul.collection.col.s8.offset-s2
+  - @employees.each do |employee|
+    %li.collection-item
+      %p=link_to employee.name, employee_path(employee)

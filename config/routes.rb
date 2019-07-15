@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   resources :machines
   resources :chemicals
   resources :warehouses
+  resources :employees
   root 'pages#index'
 end

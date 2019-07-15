@@ -7,4 +7,5 @@ class User < ApplicationRecord
   has_many :machines
   has_many :chemicals
   has_many :warehouses
+  has_many :employees
 end
