@@ -39,6 +39,6 @@ class FieldsController < ApplicationController
     end
 
     def field_params
-      params.require(:field).permit(:year, :number, :area, :ownership)
+      params.require(:field).permit(:year, :number, :area, :ownership, :name)
     end
 end

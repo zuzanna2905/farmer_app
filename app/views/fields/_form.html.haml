@@ -5,6 +5,10 @@
     =form_for @field do |f|
       .row
         .input-field.col.s12
+          = f.label :name, 'Nazwa', class: 'active'
+          = f.text_field :name, class: 'validate', autofocus: true
+      .row
+        .input-field.col.s12
           = f.label :number, 'Numer', class: 'active'
           = f.text_field :number, class: 'validate', autofocus: true
       .row

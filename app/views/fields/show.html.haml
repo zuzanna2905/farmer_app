@@ -1,7 +1,8 @@
 .row
   .col.s12.m8.offset-m2
     .card-panel.teal.center-align.white-text
-      %h4 Numer pola: #{@field.number}
+      %h4 #{@field.name}
+      %p Numer pola: #{@field.number}
       %p Rok zakupu: #{@field.year.to_date}
       %p Własność: #{@field.ownership}
       %p Powierzchnia: #{@field.area} ha

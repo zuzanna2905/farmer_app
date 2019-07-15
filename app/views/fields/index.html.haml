@@ -4,4 +4,4 @@
 %ul.collection.col.s8.offset-s2
   - @fields.each do |field|
     %li.collection-item
-      %p=link_to field.number, field_path(field)
+      %p=link_to field.name, field_path(field)
