@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   authenticated :user do
     root 'fields#index', as: 'authenicated_root'
   end
+  get 'calculator', to: 'pages#calculator'
   root 'pages#index'
 end

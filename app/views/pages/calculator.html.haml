@@ -1,0 +1,14 @@
+.center-align
+  %h4 KALKULATORY
+  %br
+  .row
+    .col.s12.m4.calculator
+      %h5 Wypłaty
+      %p= @employees.count
+      =select_tag :employee, options_from_collection_for_select(@employees, 'name', 'id'), prompt: "Select a Program Center"
+    .col.s12.m4.calculator
+      %h5 Chemikalia
+      %p= @chemicals.count
+    .col.s12.m4.calculator
+      %h5 Magazyn
+      %p= @warehouses.count
