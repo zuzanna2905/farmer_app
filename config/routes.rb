@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   resources :fields
   resources :machines
   resources :chemicals
+  resources :warehouses
   root 'pages#index'
 end

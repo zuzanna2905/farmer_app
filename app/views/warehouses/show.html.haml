@@ -1,0 +1,10 @@
+.row
+  .col.s12.m8.offset-m2
+    .card-panel.teal.center-align.white-text
+      %h4 #{@warehouse.name}
+      %p Przechowywane rośliny: #{@warehouse.items}
+      %p Objętość: #{@warehouse.volume}
+      %p Pozostało: #{@warehouse.volume_left}
+      %hr
+      =link_to 'Usuń', @warehouse, method: :delete, data: {confirm: 'Czy na pewno chcesz usunąć ten magazyn?'}, class: 'white-text'
+      =link_to 'Edytuj', edit_warehouse_path, class: 'white-text'

@@ -1,0 +1,8 @@
+%h4.center-align Magazyny
+%p.center-align
+  =link_to 'Dodaj magazyn', new_warehouse_path
+%ul.collection.col.s8.offset-s2
+  - @warehouses.each do |warehouse|
+    %li.collection-item
+      %p=link_to warehouse.name, warehouse_path(warehouse)
+      %p.grey-text Rośliny: #{warehouse.items} | Pozostało: #{warehouse.volume_left}l
