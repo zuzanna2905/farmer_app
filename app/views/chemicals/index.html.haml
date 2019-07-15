@@ -1,0 +1,8 @@
+%h4.center-align Substancje Chemiczne
+%p.center-align
+  =link_to 'Dodaj substancje', new_chemical_path
+%ul.collection.col.s8.offset-s2
+  - @chemicals.each do |chemical|
+    %li.collection-item
+      %p=link_to chemical.name, chemical_path(chemical)
+      %p.grey-text Pozostało: #{chemical.volume_left}l

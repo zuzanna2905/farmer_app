@@ -10,7 +10,6 @@ class FieldsController < ApplicationController
 
   def create 
     @field = current_user.fields.build(field_params)
-    # @field.user_id = current_user
     if @field.save
       redirect_to @field
     else

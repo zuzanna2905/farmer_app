@@ -1,0 +1,10 @@
+.row
+  .col.s12.m8.offset-m2
+    .card-panel.teal.center-align.white-text
+      %h4 #{@chemical.name}
+      %p Data ważności: #{@chemical.expiration_date.to_date}
+      %p Objętość: #{@chemical.volume}l
+      %p Pozostało: #{@chemical.volume_left}l
+      %hr
+      =link_to 'Usuń', @chemical, method: :delete, data: {confirm: 'Czy na pewno chcesz usunąć ten produkt?'}, class: 'white-text'
+      =link_to 'Edytuj', edit_chemical_path, class: 'white-text'

@@ -1,0 +1,24 @@
+= render 'shared/errors', obj: @chemical
+
+.row
+  .col.s10.offset-s1
+    =form_for @chemical do |f|
+      .row
+        .input-field.col.s12
+          = f.label :name, 'Nazwa', class: 'active'
+          = f.text_field :name, class: 'validate', autofocus: true
+      .row
+        .input-field.col.s12
+          = f.label :expiration_date, 'Data przydatności', class: 'active'
+          = f.date_field :expiration_date, class: 'validate'
+      .row
+        .input-field.col.s12
+          = f.label :volume, 'Objętość [l]', class: 'active'
+          = f.number_field :volume, class: 'validate'
+      .row
+        .input-field.col.s12
+          = f.label :volume_left, 'Pozostała objętość [l]', class: 'active'
+          = f.number_field :volume_left, class: 'validate'
+      .row
+        .input-field.col.s12
+          = f.submit 'Dodaj', class: 'btn btn-success btn-lg'

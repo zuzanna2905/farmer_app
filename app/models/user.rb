@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :fields
   has_many :machines
+  has_many :chemicals
 end
