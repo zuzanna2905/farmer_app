@@ -12,11 +12,34 @@
 //
 //= require rails-ujs
 //= require jquery
+//= require materialize
 //= require activestorage
 //= require turbolinks
 //= require_tree .
 
-document.addEventListener("turbolinks:load", function() {
-  // $('.sidenav').sidenav();
-  // $('.datepicker').datepicker();
+$(document).on('turbolinks:load', function () {
+  $(".dropdown-trigger").dropdown();
+  $('.sidenav').sidenav();
+  $('#fade-out-target').fadeOut(4000);
 })
+
+function count_payment() {
+  var hours = parseFloat(document.getElementById('number_w').value);
+  var employee = parseFloat(document.getElementById('value_w').value);
+  var result = document.getElementById('result_w');
+  result.innerHTML = hours * employee;
+}
+
+function count_chemicals() {
+  var area = parseFloat(document.getElementById('area_c').value);
+  var chemical = parseFloat(document.getElementById('chemical_c').value);
+  var result = document.getElementById('result_c');
+  result.innerHTML = area / chemical;
+}
+
+function count_magazins() {
+  var area = parseFloat(document.getElementById('area_m').value);
+  var items = parseFloat(document.getElementById('items_m').value);
+  var result = document.getElementById('result_m');
+  result.innerHTML = area * items;
+}

@@ -4,11 +4,40 @@
   .row
     .col.s12.m4.calculator
       %h5 Wypłaty
-      %p= @employees.count
-      =select_tag :employee, options_from_collection_for_select(@employees, 'name', 'id'), prompt: "Select a Program Center"
+      .row
+        .col.s10.offset-s1
+          %br
+          = label_tag :number_w, 'Liczba Godzin'
+          = number_field_tag :number_w, 0, step: 0.5
+          = label_tag :value_W, 'Stawka Pracownika'
+          = number_field_tag :value_w, 0
+          = label_tag :result_w, 'Wynik'
+          %h5#result_w 0
+          %br
+          = submit_tag 'Oblicz', class: 'btn', onclick: 'count_payment()'
     .col.s12.m4.calculator
       %h5 Chemikalia
-      %p= @chemicals.count
+      .row
+        .col.s10.offset-s1
+          %br
+          = label_tag :area_c, 'Liczba hektarów'
+          = number_field_tag :area_c, 0, step: 0.1
+          = label_tag :chemical_c, 'Wydajność substancji [l/ha]'
+          = number_field_tag :chemical_c, 0, step: 0.1
+          = label_tag :result_c, 'Liczba potrzebnych litrów'
+          %h5#result_c 0
+          %br
+          = submit_tag 'Oblicz', class: 'btn', onclick: 'count_chemicals()'
     .col.s12.m4.calculator
       %h5 Magazyn
-      %p= @warehouses.count
+      .row
+        .col.s10.offset-s1
+          %br
+          = label_tag :area_m, 'Liczba hektarów'
+          = number_field_tag :area_m, 0, step: 0.1
+          = label_tag :items_m, 'Wydajność zbiorów [l/ha]'
+          = number_field_tag :items_m, 0, step: 0.1
+          = label_tag :result_m, 'Liczba potrzebnych litrów'
+          %h5#result_m 0
+          %br
+          = submit_tag 'Oblicz', class: 'btn', onclick: 'count_magazins()'
