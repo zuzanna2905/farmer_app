@@ -8,17 +8,16 @@
     - else
       =link_to 'ZALOGUJ', new_user_session_path
       =link_to 'ZAREJESTRUJ', new_user_registration_path
-
   %ul.sidenav#mobile
     - if user_signed_in?
       =link_to 'POLA', fields_path
-      %li MASZYNY
-      %li CHEMIKALIA
-      %li MAGAZYNY
+      =link_to 'MASZYNY', machines_path
+      =link_to 'CHEMIKALIA', chemicals_path
+      =link_to 'MAGAZYNY', warehouses_path
       %li WYDATKI
-      %li PRACOWNICY
-      %li KALKULATOR
-      %li WYLOGUJ
+      =link_to 'PRACOWNICY', employees_path
+      =link_to 'KALKULATOR', calculator_path
+      =link_to 'WYLOGUJ', destroy_user_session_path, method: :delete
     - else
-      %li ZALOGUJ
-      %li ZAREJESTRUJ
+      =link_to 'ZALOGUJ', new_user_session_path
+      =link_to 'ZAREJESTRUJ', new_user_registration_path

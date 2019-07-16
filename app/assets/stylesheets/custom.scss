@@ -17,6 +17,17 @@ nav {
       width: 150px;
     }
   }
+  .sidenav{
+    display: block;
+    position: fixed;
+    z-index: 998;
+    a {
+      text-decoration: none;
+      color: black;
+      position: relative;
+      z-index: 999;
+    }
+  }
 }
 
 .page {
@@ -48,4 +59,9 @@ nav {
   border: 2px solid $yellow;
   height: 400px;
   border-radius: 15px;
+}
+
+.sidenav-overlay {
+  position: fixed;
+  z-index: 0;
 }

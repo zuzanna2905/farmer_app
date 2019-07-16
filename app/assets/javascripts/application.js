@@ -19,8 +19,17 @@
 
 $(document).on('turbolinks:load', function () {
   $(".dropdown-trigger").dropdown();
-  $('.sidenav').sidenav();
   $('#fade-out-target').fadeOut(4000);
+  elem = document.querySelector('#mobile');
+  instance = new M.Sidenav(elem, {});
+})
+
+$(document).on('ready turbolinks:before-render', function() {
+  elem = document.querySelector('#mobile');
+  instance = M.Sidenav.getInstance(elem);
+  if (instance){
+    instance.destroy();
+  }
 })
 
 function count_payment() {
