@@ -1,11 +1,19 @@
 .row
-  .col.s12.m8.offset-m2
+  .col.s12.m10.offset-m1
     .card-panel.teal.center-align.white-text
       %h4 #{@field.name}
-      %p Numer pola: #{@field.number}
-      %p Rok zakupu: #{@field.year.to_date}
-      %p Własność: #{@field.ownership}
-      %p Powierzchnia: #{@field.area} ha
-      %hr
       =link_to 'Usuń', @field, method: :delete, data: {confirm: 'Czy na pewno chcesz usunąć to pole?'}, class: 'white-text'
       =link_to 'Edytuj', edit_field_path, class: 'white-text'
+      %hr
+      .row
+        .col.s6
+          %p Numer pola: #{@field.number}
+          %p Rok zakupu: #{@field.year.to_date}
+        .col.s6
+          %p Własność: #{@field.is_own?}
+          %p Powierzchnia: #{@field.area} ha
+      %hr
+      .row
+        .col.s12
+          = @field.events.each do |event| 
+            %p #{event.name}

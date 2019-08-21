@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :chemicals
   resources :warehouses
   resources :employees
+  resources :events
   authenticated :user do
     root 'fields#index', as: 'authenicated_root'
   end

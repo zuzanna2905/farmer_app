@@ -8,4 +8,5 @@ class User < ApplicationRecord
   has_many :chemicals
   has_many :warehouses
   has_many :employees
+  has_many :events
 end

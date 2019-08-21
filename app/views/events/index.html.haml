@@ -1,0 +1,7 @@
+%h4.center-align Akcje
+%p.center-align
+  =link_to 'Dodaj akcję', new_event_path
+%ul.collection.col.s8.offset-s2
+  - @events.each do |event|
+    %li.collection-item
+      %p=link_to event.name, event_path(event)

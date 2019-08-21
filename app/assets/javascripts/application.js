@@ -20,8 +20,13 @@
 $(document).on('turbolinks:load', function () {
   $(".dropdown-trigger").dropdown();
   $('#fade-out-target').fadeOut(4000);
+  $('select').formSelect();
   elem = document.querySelector('#mobile');
   instance = new M.Sidenav(elem, {});
+
+  $('select').on('contentChanged', function() {
+    $(this).formSelect();
+  });
 })
 
 $(document).on('ready turbolinks:before-render', function() {

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_15_110218) do
+ActiveRecord::Schema.define(version: 2019_08_21_100941) do
 
   create_table "chemicals", force: :cascade do |t|
     t.string "name"
@@ -32,6 +32,24 @@ ActiveRecord::Schema.define(version: 2019_07_15_110218) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_employees_on_user_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "name"
+    t.date "date"
+    t.time "time"
+    t.integer "chemical_id"
+    t.integer "employee_id"
+    t.integer "machine_id"
+    t.integer "field_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chemical_id"], name: "index_events_on_chemical_id"
+    t.index ["employee_id"], name: "index_events_on_employee_id"
+    t.index ["field_id"], name: "index_events_on_field_id"
+    t.index ["machine_id"], name: "index_events_on_machine_id"
+    t.index ["user_id"], name: "index_events_on_user_id"
   end
 
   create_table "fields", force: :cascade do |t|

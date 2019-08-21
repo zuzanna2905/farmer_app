@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  date: 2019-08-21
+  time: 2019-08-21 12:09:41
+  chemical: one
+  employee: one
+  machine: one
+
+two:
+  name: MyString
+  date: 2019-08-21
+  time: 2019-08-21 12:09:41
+  chemical: two
+  employee: two
+  machine: two

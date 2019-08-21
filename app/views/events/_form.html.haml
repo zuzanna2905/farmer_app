@@ -1,0 +1,36 @@
+= render 'shared/errors', obj: @event
+
+.row
+  .col.s10.offset-s1
+    =form_for @event do |f|
+      .row
+        .input-field.col.s12
+          = f.label :name, 'Nazwa', class: 'active'
+          = f.text_field :name, class: 'validate', autofocus: true, class: 'active'
+      .row
+        .input-field.col.s12
+          = f.label :machine_id, 'Maszyna', class: 'active'
+          = f.select :machine_id, options_for_select(Machine.where(user_id: current_user).map{|s|[s.name, s.id]})
+      .row
+        .input-field.col.s12
+          = f.label :chemical_id, 'Chemikalia', class: 'active'
+          = f.select :chemical_id, options_for_select(Chemical.where(user_id: current_user).map{|s|[s.name, s.id]})
+      .row
+        .input-field.col.s12
+          = f.label :field_id, 'Pole', class: 'active'
+          = f.select :field_id, options_for_select(Field.where(user_id: current_user).map{|s|[s.name, s.id]})
+      .row
+        .input-field.col.s12
+          = f.label :employee_id, 'Pracownik', class: 'active'
+          = f.select :employee_id, options_for_select(Employee.where(user_id: current_user).map{|s|[s.name, s.id]})
+      .row
+        .input-field.col.s12
+          = f.label :date, 'Data', class: 'active'
+          = f.date_field :date, class: 'validate', autofocus: true, class: 'active'
+      .row
+        .input-field.col.s12
+          = f.label :time, 'Czas', class: 'active'
+          = f.time_field :time, class: 'validate', autofocus: true, class: 'active'
+      .row
+        .input-field.col.s12
+          = f.submit 'Dodaj', class: 'btn btn-success btn-lg'
