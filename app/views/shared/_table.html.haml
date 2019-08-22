@@ -1,0 +1,10 @@
+.table
+  .thead
+    .tr
+      -keys.each do |k|
+        .td #{k}
+  .tbody
+  -obj.each do |el|
+    .tr
+      -keys.each do |k|
+        .td #{el[k]}

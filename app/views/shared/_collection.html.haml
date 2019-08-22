@@ -1,0 +1,6 @@
+%ul.collection
+  %li.collection-header
+    %h5 Historia
+  -obj.sort_by(&:date).reverse.each do |el|
+    %li.collection-item.black-text
+      =link_to  "#{el.name} | #{el.date} | #{el.time.strftime('%H:%M')} | #{el.machine.name} | #{el.employee.name} | #{el.chemical.name} ", event_path(el)

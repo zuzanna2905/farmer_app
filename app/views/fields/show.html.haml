@@ -15,5 +15,4 @@
       %hr
       .row
         .col.s12
-          = @field.events.each do |event| 
-            %p #{event.name}
+          =render 'shared/collection', obj: @field.events, keys: [:name, :date, :time]
