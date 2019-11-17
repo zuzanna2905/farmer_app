@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
-  before_action :find_event, only: [:show, :edit, :update, :destroy, :same_user]
+  before_action :find_event, only: %i[show edit update destroy same_user]
   before_action :authenticate_user!
-  before_action :same_user, except: [:index, :new, :create]
+  before_action :same_user, except: %i[index new create]
 
   def index
     @events = Event.where(user_id: current_user)

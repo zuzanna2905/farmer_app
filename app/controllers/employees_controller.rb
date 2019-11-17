@@ -45,9 +45,9 @@ class EmployeesController < ApplicationController
       params.require(:employee).permit(:name, :start_date, :payment, :skills)
     end
 
-    def same_user
-      if @employee.user_id != current_user.id
-        redirect_to employees_path
-      end
+  def same_user
+    return unless @employee.user_id != current_user.id
+      redirect_to employees_path
     end
+  end
 end
